@@ -6,10 +6,6 @@ SET(PROJECT_NAME example-robot-data)
 SET(PROJECT_DESCRIPTION "Set of robot URDFs for benchmarking and developed examples.")
 SET(PROJECT_URL https://github.com/${PROJECT_ORG}/${PROJECT_NAME})
 
-# Project options
-OPTION(BUILD_PYTHON_INTERFACE "Build the python unit tests and helpers" ON)
-OPTION(INSTALL_PYTHON_INTERFACE_ONLY "Install *ONLY* the python interface" OFF)
-
 # Project configuration
 IF(NOT INSTALL_PYTHON_INTERFACE_ONLY)
   SET(PROJECT_USE_CMAKE_EXPORT TRUE)
