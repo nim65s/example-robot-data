@@ -167,7 +167,7 @@ class RobotTestCase(unittest.TestCase):
         self.check("tiago_no_hand", 14, 12)
 
     def test_tiago_pro(self):
-        self.check("tiago_pro", 14, 12)
+        self.check("tiago_pro", 37, 33)
 
     def test_ur3(self):
         self.check("ur3", 6, 6)
