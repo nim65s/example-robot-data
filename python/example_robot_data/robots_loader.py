@@ -417,6 +417,10 @@ class TiagoLoader(RobotLoader):
     path = "tiago_description"
     urdf_filename = "tiago.urdf"
 
+class TiagoProLoader(RobotLoader):
+    path = "tiago2_description"
+    urdf_filename = "tiago_pro.urdf"
+
 
 class TiagoDualLoader(TiagoLoader):
     urdf_filename = "tiago_dual.urdf"
@@ -609,6 +613,7 @@ ROBOTS = {
     "talos_legs": TalosLegsLoader,
     "talos_full": TalosFullLoader,
     "talos_full_box": TalosFullBoxLoader,
+    "tiago_pro": TiagoProLoader,
     "tiago": TiagoLoader,
     "tiago_dual": TiagoDualLoader,
     "tiago_no_hand": TiagoNoHandLoader,
