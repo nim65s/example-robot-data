@@ -632,7 +632,18 @@ def loader(name, display=False, rootNodeName="", verbose=False):
     inst = ROBOTS[name](verbose=verbose)
     if display:
         if rootNodeName:
-            inst.robot.initViewer()
+            from pinocchio.visualize import GepettoVisualizer
+
+            inst.robot.viz = GepettoVisualizer(
+                inst.robot.model,
+                inst.robot.collision_model,
+                inst.robot.visual_model,
+                False,
+                inst.robot.data,
+                inst.robot.data,
+                inst.robot.visual_data,
+            )
+            inst.robot.viz.initViewer()
             inst.robot.viz.loadViewerModel(rootNodeName=rootNodeName)
         else:
             inst.robot.initViewer(loadModel=True)
