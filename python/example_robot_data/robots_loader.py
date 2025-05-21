@@ -725,6 +725,29 @@ class PR2Loader(RobotLoader):
     free_flyer = True
     ref_posture = "tuck_left_arm"
 
+class HumanLoader(RobotLoader):
+    path = "human_description"
+    urdf_filename = "human.urdf"
+    free_flyer = True
+    ref_posture = "anatomical"
+    # Enforced, unchangeable free-flyer orientation (90° about X, and Y↔Z swap)
+    freeflyer_ori: np.ndarray = np.array([
+        [1,  0,  0],
+        [0,  0, -1],
+        [0,  1,  0],
+    ])
+    def __init__(self, verbose: bool = False):
+        # call base loader
+        super().__init__(verbose=verbose)
+
+        # automatically apply the enforced free-flyer orientation
+        if self.free_flyer:
+            # get joint index
+            j_id = self.robot.model.getJointId('root_joint')
+            # assign enforced rotation
+            self.robot.model.jointPlacements[j_id].rotation = self.freeflyer_ori
+            # re-apply limits 
+            self.addFreeFlyerJointLimits()
 
 ROBOTS = {
     "b1": B1Loader,
@@ -750,6 +773,7 @@ ROBOTS = {
     "double_pendulum_simple": DoublePendulumSimpleLoader,
     "hector": HectorLoader,
     "hextilt": HextiltLoader,
+    "human": HumanLoader,
     "hyq": HyQLoader,
     "icub": ICubLoader,
     "icub_reduced": ICubReducedLoader,
