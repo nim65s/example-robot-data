@@ -6,6 +6,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ## [Unreleased]
 
+- The default git branch is now devel
+
 ## [4.3.0] - 2025-03-18
 
 - Add panda collision ([#242](https://github.com/Gepetto/example-robot-data/pull/242)) + ([#263](https://github.com/Gepetto/example-robot-data/pull/263))
