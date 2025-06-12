@@ -100,6 +100,9 @@ class RobotTestCase(unittest.TestCase):
     def test_hector(self):
         self.check("hector", 7, 6)
 
+    def test_human(self):
+        self.check("human", 43, 42)
+
     def test_hyq(self):
         self.check("hyq", 19, 18)
 
