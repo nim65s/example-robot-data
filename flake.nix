@@ -19,11 +19,14 @@
         {
           apps.default = {
             type = "app";
-            program = pkgs.python3.withPackages (_: [ self'.packages.default ]);
+            program = pkgs.python3.withPackages (p: [
+              p.gepetto-gui
+              self'.packages.default
+            ]);
           };
           devShells.default = pkgs.mkShell {
             inputsFrom = [ self'.packages.default ];
-            packages = [ (pkgs.python3.withPackages (p: [p.tomlkit])) ]; # for "make release"
+            packages = [ (pkgs.python3.withPackages (p: [ p.tomlkit ])) ]; # for "make release"
           };
           packages = {
             default = self'.packages.example-robot-data;
