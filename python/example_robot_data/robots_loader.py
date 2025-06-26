@@ -743,8 +743,8 @@ class HumanLoader(RobotLoader):
 
     def __init__(
         self,
-        height: float = None,
-        weight: float = None,
+        height: typing.Optional[float] = None,
+        weight: typing.Optional[float] = None,
         gender: str = "m",
         verbose: bool = False,
     ):
@@ -1549,7 +1549,7 @@ class HumanLoader(RobotLoader):
             ]
         )
         # Ratios from De Leva : HJC from Seidel
-        # SJC Schnorenberg‐style AC/H = 0.132 (F) or 0.0129 (M)
+        # SJC Schnorenberg-style AC/H = 0.132 (F) or 0.0129 (M)
         SJ_thorax_X_r = 0.0043 if gender == "f" else 0.0046
         SJ_thorax_Y_r = -0.0449 if gender == "f" else -0.0416
         SJ_thorax_Z_r = 0.1108 if gender == "f" else 0.1164
